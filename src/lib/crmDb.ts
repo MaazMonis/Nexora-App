@@ -51,25 +51,28 @@ export async function ensureCrmSchema() {
 export async function syncCustomer({
   full_name,
   email,
-  phone
+  phone,
+  country
 }: {
   full_name: string;
   email: string;
   phone?: string;
+  country?: string;
 }) {
   try {
     const res = await pool.query(
       `
-      INSERT INTO customers (full_name, email, phone, last_activity_at)
-      VALUES ($1, $2, $3, NOW())
+      INSERT INTO customers (full_name, email, phone, country, last_activity_at)
+      VALUES ($1, $2, $3, $4, NOW())
       ON CONFLICT (email) DO UPDATE SET
         full_name = EXCLUDED.full_name,
         phone = COALESCE(EXCLUDED.phone, customers.phone),
+        country = COALESCE(EXCLUDED.country, customers.country),
         last_activity_at = NOW(),
         updated_at = NOW()
       RETURNING id
       `,
-      [full_name, email.toLowerCase().trim(), phone || null]
+      [full_name, email.toLowerCase().trim(), phone || null, country || null]
     );
     return res.rows[0].id;
   } catch (err) {
