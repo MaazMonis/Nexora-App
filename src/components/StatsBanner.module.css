@@ -1,0 +1,44 @@
+.statsSection {
+  background: #000;
+  padding: 5rem 0;
+  margin: 4rem 0;
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 3rem;
+  padding: 0 2rem;
+}
+
+.statItem {
+  text-align: center;
+}
+
+.value {
+  font-family: var(--font-serif);
+  font-size: 3.5rem;
+  color: var(--accent-color);
+  margin-bottom: 0.5rem;
+}
+
+.label {
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+  .value { font-size: 2.5rem; }
+  .container { gap: 2rem; }
+}

@@ -1,0 +1,140 @@
+.gridSection {
+  padding: 6rem 0;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2.5rem;
+  margin-top: 3rem;
+}
+
+.card {
+  height: 450px;
+  border-radius: 24px;
+  overflow: hidden;
+  position: relative;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.cardLink {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  width: 100%;
+  height: 100%;
+  padding: clamp(1.5rem, 5vw, 3rem) clamp(1.5rem, 5vw, 2rem);
+  text-decoration: none;
+  color: #fff;
+}
+
+.cardBg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 1;
+}
+
+.card:hover .cardBg {
+  transform: scale(1.1);
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.2) 40%,
+    rgba(0, 0, 0, 0.8) 100%
+  );
+  z-index: 2;
+  transition: opacity 0.5s ease;
+}
+
+.card:hover .overlay {
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.4) 30%,
+    rgba(0, 0, 0, 0.9) 100%
+  );
+}
+
+.cardContent {
+  position: relative;
+  z-index: 3;
+  transform: translateY(20px);
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card:hover .cardContent {
+  transform: translateY(0);
+}
+
+.cardContent h3 {
+  font-family: var(--font-serif);
+  font-size: clamp(1.8rem, 5vw, 2.2rem);
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.cardContent p {
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 1.5rem;
+  font-size: clamp(0.95rem, 3vw, 1.1rem);
+  letter-spacing: 0.5px;
+}
+
+.explore {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--accent-color);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  display: inline-block;
+  padding-bottom: 5px;
+  border-bottom: 1px solid var(--accent-color);
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.5s ease 0.1s;
+}
+
+.card:hover .explore {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+  .card {
+    height: 380px;
+  }
+  .cardContent {
+    transform: translateY(0);
+  }
+  .explore {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 480px) {
+  .gridSection {
+    padding: 3rem 0;
+  }
+  .card {
+    height: 320px;
+    border-radius: 20px;
+  }
+}

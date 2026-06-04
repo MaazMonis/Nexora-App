@@ -1,0 +1,116 @@
+.dropdownContainer {
+  position: relative;
+  width: 100%;
+  z-index: 100;
+}
+
+.dropdownHeader {
+  width: 100%;
+  padding: 0.9rem 1.2rem;
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  border-radius: 12px;
+  color: #fff;
+  font-size: 0.95rem;
+  font-weight: 500;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  backdrop-filter: blur(10px);
+}
+
+.dropdownHeader:hover, .active {
+  border-color: var(--accent-color);
+  background: rgba(212, 175, 55, 0.05);
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.1);
+}
+
+.arrow {
+  color: var(--accent-color);
+  opacity: 0.8;
+}
+
+.dropdownMenu {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  left: auto;
+  min-width: 100%;
+  width: max-content;
+  min-width: 180px;
+  max-height: 250px;
+  overflow-y: auto;
+  background: #0a0f1a;
+  border: 1px solid #d4af37;
+  border-radius: 12px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.9), 0 0 20px rgba(212, 175, 55, 0.1);
+  z-index: 5000;
+  backdrop-filter: blur(20px);
+}
+
+
+
+.dropdownMenu::-webkit-scrollbar {
+  width: 4px;
+}
+
+.dropdownMenu::-webkit-scrollbar-track {
+  background: #050810;
+}
+
+.dropdownMenu::-webkit-scrollbar-thumb {
+  background: #d4af37;
+  border-radius: 10px;
+}
+
+
+
+.dropdownItem {
+  width: 100%;
+  padding: 0.9rem 1.2rem;
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.7);
+  text-align: left;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.dropdownItem:hover {
+  background: rgba(212, 175, 55, 0.1);
+  color: #d4af37;
+}
+
+
+.selected {
+  background: rgba(212, 175, 55, 0.15);
+  color: var(--accent-color);
+  font-weight: 700;
+}
+
+.activeIndicator {
+  width: 6px;
+  height: 6px;
+  background: var(--accent-color);
+  border-radius: 50%;
+  box-shadow: 0 0 10px var(--accent-color);
+}
+
+@media (max-width: 480px) {
+  .dropdownHeader {
+    padding: 1rem 1.2rem;
+    font-size: 0.95rem;
+  }
+  
+  .dropdownItem {
+    padding: 1rem 1.2rem;
+  }
+}

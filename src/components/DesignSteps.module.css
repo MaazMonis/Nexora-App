@@ -1,0 +1,275 @@
+.section {
+  padding: 7rem 0;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle gold glow background */
+.section::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 700px;
+  height: 700px;
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.06) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: center;
+}
+
+/* ── Left Side ── */
+.textSide {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.overline {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: #d4af37;
+  margin-bottom: 1.25rem;
+}
+
+.heading {
+  font-family: var(--font-serif, Georgia, serif);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  line-height: 1.15;
+  color: #fff;
+  margin-bottom: 1.25rem;
+}
+
+.heading span {
+  background: linear-gradient(135deg, #d4af37, #f1d279);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.desc {
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 1rem;
+  line-height: 1.8;
+  margin-bottom: 2.5rem;
+}
+
+/* Numbered Steps */
+.stepList {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.stepItem {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.95rem;
+}
+
+.stepNum {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid rgba(212, 175, 55, 0.5);
+  background: rgba(212, 175, 55, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #d4af37;
+  flex-shrink: 0;
+  transition: all 0.3s;
+}
+
+.stepItem:hover .stepNum {
+  background: #d4af37;
+  color: #050810;
+  border-color: #d4af37;
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
+}
+
+/* CTA Button */
+.cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  background: transparent;
+  border: 1px solid #d4af37;
+  color: #d4af37;
+  padding: 1rem 2.5rem;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-decoration: none;
+  transition: all 0.35s;
+  position: relative;
+  overflow: hidden;
+  width: fit-content;
+}
+
+.cta::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #d4af37, #f1d279);
+  opacity: 0;
+  transition: opacity 0.35s;
+  z-index: 0;
+}
+
+.cta:hover::before {
+  opacity: 1;
+}
+
+.cta:hover {
+  color: #050810;
+  box-shadow: 0 8px 30px rgba(212, 175, 55, 0.3);
+  transform: translateY(-2px);
+}
+
+.cta span {
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Right Side ── */
+.imageSide {
+  position: relative;
+}
+
+.imageFrame {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  box-shadow:
+    0 0 60px rgba(0, 0, 0, 0.5),
+    0 0 30px rgba(212, 175, 55, 0.08);
+}
+
+.image {
+  width: 100%;
+  height: 520px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s ease;
+}
+
+.imageFrame:hover .image {
+  transform: scale(1.04);
+}
+
+/* Gold corner accents */
+.corner {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.corner.tl {
+  top: 12px;
+  left: 12px;
+  border-top: 2px solid #d4af37;
+  border-left: 2px solid #d4af37;
+}
+
+.corner.br {
+  bottom: 12px;
+  right: 12px;
+  border-bottom: 2px solid #d4af37;
+  border-right: 2px solid #d4af37;
+}
+
+/* Floating badge */
+.badge {
+  position: absolute;
+  bottom: -1.5rem;
+  left: -1.5rem;
+  background: rgba(10, 15, 26, 0.95);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  border-radius: 14px;
+  padding: 1rem 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+}
+
+.badgeIcon {
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.badgeTitle {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #fff;
+  margin: 0;
+}
+
+.badgeSub {
+  font-size: 0.75rem;
+  color: rgba(212, 175, 55, 0.8);
+  margin: 0.15rem 0 0;
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .inner {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .imageSide {
+    order: -1;
+  }
+
+  .image {
+    height: 380px;
+  }
+
+  .badge {
+    bottom: -1rem;
+    left: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .section {
+    padding: 4rem 0;
+  }
+
+  .image {
+    height: 280px;
+  }
+
+  .heading {
+    font-size: 1.8rem;
+  }
+}

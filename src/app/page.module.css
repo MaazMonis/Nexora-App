@@ -1,0 +1,180 @@
+.homeWrapper {
+  overflow-x: hidden;
+}
+
+/* Split Section */
+.splitSection {
+  display: flex;
+  align-items: center;
+  gap: 5rem;
+  padding: 8rem 0;
+}
+
+.imageBox {
+  flex: 1;
+  position: relative;
+}
+
+.imageBox img {
+  width: 100%;
+  border-radius: 30px;
+  box-shadow: 0 30px 60px rgba(0,0,0,0.4);
+  border: 1px solid var(--border-color);
+}
+
+.textBox {
+  flex: 1;
+}
+
+.overline {
+  color: var(--accent-color);
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.sectionHeading {
+  font-family: var(--font-serif);
+  font-size: clamp(2.2rem, 5vw, 3.5rem);
+  line-height: 1.1;
+  margin-bottom: 2rem;
+}
+
+.sectionHeading span {
+  color: var(--accent-color);
+  font-style: italic;
+}
+
+.textBox p {
+  font-size: clamp(1rem, 3vw, 1.2rem);
+  line-height: 1.8;
+  color: var(--text-secondary);
+  margin-bottom: 2.5rem;
+}
+
+/* Teaser Section */
+.teaserSection {
+  padding: 6rem 0;
+}
+
+.teaserCard {
+  background: linear-gradient(135deg, rgba(212, 175, 55, 0.1) 0%, rgba(5, 8, 16, 0.5) 100%);
+  border: 1px solid var(--border-color);
+  border-radius: 40px;
+  padding: 6rem;
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+  backdrop-filter: blur(10px);
+}
+
+.teaserContent {
+  flex: 3;
+}
+
+.teaserContent p {
+  font-size: clamp(1.1rem, 3vw, 1.3rem);
+  color: var(--text-secondary);
+  margin-bottom: 3rem;
+}
+
+.teaserVisual {
+  flex: 2;
+  display: flex;
+  justify-content: center;
+}
+
+.floatingRing {
+  width: 100%;
+  max-width: 320px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  filter: drop-shadow(0 20px 50px rgba(212, 175, 55, 0.4));
+  transform: rotate(-10deg);
+  transition: transform 0.5s ease;
+}
+
+.teaserImg {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  border-radius: 20px;
+}
+
+/* Footer Teaser */
+.footerTeaser {
+  background: #000;
+  padding: 6rem 0;
+  border-top: 1px solid var(--border-color);
+}
+
+.footerGrid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 4rem;
+}
+
+.footerCol h4 {
+  font-family: var(--font-serif);
+  font-size: 1.4rem;
+  margin-bottom: 1.5rem;
+  color: #fff;
+}
+
+.footerCol p, .footerCol li {
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.footerCol ul {
+  list-style: none;
+}
+
+.footerCol li {
+  margin-bottom: 0.8rem;
+}
+
+@media (max-width: 968px) {
+  .splitSection {
+    flex-direction: column;
+    text-align: center;
+    padding: 4rem 0;
+    gap: 3rem;
+  }
+  
+  .teaserCard {
+    flex-direction: column;
+    padding: 3rem 2rem;
+    gap: 3rem;
+    text-align: center;
+  }
+
+  .footerGrid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    text-align: center;
+  }
+
+  .floatingRing {
+    max-width: 250px;
+  }
+}
+
+@media (max-width: 480px) {
+  .teaserSection {
+    padding: 3rem 0;
+  }
+  
+  .teaserCard {
+    border-radius: 24px;
+    padding: 2.5rem 1.5rem;
+  }
+  
+  .splitSection {
+    padding: 6rem 0;
+  }
+}
